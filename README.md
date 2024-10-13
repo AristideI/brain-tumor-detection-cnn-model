@@ -78,7 +78,6 @@ The second model incorporates regularization and dropout layers to reduce overfi
 
 ### L2 vs. L Regularization
 
-
 We applied **L2** regularization instead of **L1**. **L2** regularization reduces the overall magnitude of weights, helping to prevent overfitting without necessarily promoting sparsity. This approach was chosen to enhance generalization without focusing on feature selection.
 
 ## Optimizers
@@ -91,7 +90,6 @@ We chose the **Adam optimizer** instead of **Adamax** or **RMSprop**. **Adam** c
 **Adam**: A widely-used optimizer that balances momentum and adaptive learning rates, suitable for most tasks.
 **RMSprop**: Focuses on adaptive learning rates, which helps with non-stationary data, though it may converge more slowly.
 **Adamax**: A variant of Adam based on the infinity norm, which can be advantageous with large gradients or outliers.
----
 
 ## Model Training and Callbacks
 
