@@ -98,19 +98,19 @@ We implemented the following callbacks to enhance the model's training:
 - **EarlyStopping**: Monitors `val_loss` and stops training when no improvement is seen after 20 epochs, restoring the best weights.
 
   ```python
-  early_stopping = EarlyStopping(monitor='val_loss', patience=20, restore_best_weights=True)
+  early_stopping = EarlyStopping(monitor='val_loss', patience=8, restore_best_weights=True, mode='auto', verbose=1)
   ```
 
 - **ModelCheckpoint**: Saves the best model based on validation performance.
 
   ```python
-  check_point = ModelCheckpoint("training/model.{epoch:03d}.keras", save_best_only=True)
+  check_point = ModelCheckpoint("callbacks/model_checkpoint.keras", save_best_only=True,  mode='auto', verbose=1)
   ```
 
 - **ReduceLROnPlateau**: Reduces the learning rate by a factor of 0.2 if there’s no improvement in `val_loss` for 5 epochs, with a minimum learning rate of 0.0001.
 
   ```python
-  reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.2, patience=5, min_lr=0.0001)
+  reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.2, patience=5, min_lr=0.0001, verbose=1)
   ```
 
 ## 3. Conclusion
