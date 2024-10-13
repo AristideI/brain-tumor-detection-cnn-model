@@ -55,10 +55,13 @@ The second model incorporates regularization and dropout layers to reduce overfi
 | ------------ | ------- | ----------- | ---------- | --------- | ------------ | -------------- |
 | Conv2D       | 32      | (3, 3)      | ReLU       | -         | -            | L2(0.001)      |
 | MaxPooling2D | -       | -           | -          | (2, 2)    | 0.4          | -              |
+| BatchNormalisation | -       | -           | -          | -    | -          | -              |
 | Conv2D       | 64      | (3, 3)      | ReLU       | -         | -            | L2(0.001)      |
 | MaxPooling2D | -       | -           | -          | (2, 2)    | 0.4          | -              |
+| BatchNormalisation | -       | -           | -          | (2, 2)    | 0.4          | -              |
 | Flatten      | -       | -           | -          | -         | -            | -              |
 | Dense        | 64      | -           | ReLU       | -         | 0.4          | L2(0.001)      |
+| BatchNormalisation | -       | -           | -          | -   |   -    | -              |
 | Dense        | 32      | -           | ReLU       | -         | -            | L2(0.001)      |
 | Output       | -       | -           | Softmax    | -         | -            | -              |
 
