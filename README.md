@@ -44,8 +44,8 @@ The first model is a simple Convolutional Neural Network (CNN) without additiona
 
 **Training Results**:
 
-- **Final Training Accuracy**: 97.70%
-- **Final Validation Accuracy**: 80.56%
+- **Final Training Accuracy**: 100.0%
+- **Final Validation Accuracy**: 91.56%
 
 ### Model 2: Optimized Model with Regularization and Dropout
 
@@ -71,25 +71,26 @@ The second model incorporates regularization and dropout layers to reduce overfi
 
 **Training Results**:
 
-- **Final Training Accuracy**: 88.94%
-- **Final Validation Accuracy**: 86.11%
+- **Final Training Accuracy**: 91.94%
+- **Final Validation Accuracy**: 80.11%
 
 ## Regularization
 
-### L1 vs. L1_L2 Regularization
+### L2 vs. L Regularization
 
-We applied **L1** and **L2** regularization separately rather than using **L1_L2**. Using **L1** regularization helps promote sparsity by driving some weights to zero, making it easier to interpret which features are important. In contrast, **L1_L2** (Elastic Net) combines both but can be more complex to tune and may not offer clear benefits in all cases, particularly when feature selection is important.
+
+We applied **L2** regularization instead of **L1**. **L2** regularization reduces the overall magnitude of weights, helping to prevent overfitting without necessarily promoting sparsity. This approach was chosen to enhance generalization without focusing on feature selection.
 
 ## Optimizers
 
-### Adamax vs. Adam and RMSprop
+### Adam vs. Adamax and RMSprop
 
-We opted for the **Adam** optimizer instead of **Adamax** or **RMSprop**. Adamax is a variant of Adam based on the infinity norm, which performs better in certain cases where Adam might have convergence issues. Here’s a brief comparison:
+**Adam** vs. **Adamax** and **RMSprop**
+We chose the **Adam optimizer** instead of **Adamax** or **RMSprop**. **Adam** combines momentum with adaptive learning rates, making it a versatile choice for a wide range of tasks. Here’s a brief comparison:
 
-- **Adam**: A widely-used optimizer that combines momentum and adaptive learning rates. Suitable for most tasks.
-- **RMSprop**: Focuses on adaptive learning rates and works well with non-stationary data but may suffer from slow convergence.
-- **Adamax**: Handles the infinity norm and performs better when dealing with large gradients or outliers in the data.
-
+**Adam**: A widely-used optimizer that balances momentum and adaptive learning rates, suitable for most tasks.
+**RMSprop**: Focuses on adaptive learning rates, which helps with non-stationary data, though it may converge more slowly.
+**Adamax**: A variant of Adam based on the infinity norm, which can be advantageous with large gradients or outliers.
 ---
 
 ## Model Training and Callbacks
